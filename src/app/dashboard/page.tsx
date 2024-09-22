@@ -6,7 +6,7 @@ const Dashboard: React.FC = () => {
 	const isAuthenticated = false
 	//const isAuthenticated = await checkIsAuthenticated();
 
-	if (isAuthenticated) {
+	if (!isAuthenticated) {
 		redirect("/auth/sign-in")
 	} else {
 		return <DashboardTemplate />
