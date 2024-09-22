@@ -1,9 +1,10 @@
 "use server"
 
+import { signOut } from "@/src/lib/auth/authConfig"
+
 export const handleSignOut = async () => {
 	try {
-		// TODO: Handle Sign Out
-		console.log("lib: sign out")
+		await signOut()
 	} catch (error) {
 		throw error
 	}
