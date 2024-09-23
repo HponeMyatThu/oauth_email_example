@@ -2,9 +2,10 @@ import PostgresAdapter from "@auth/pg-adapter"
 import NextAuth from "next-auth"
 import { pool } from "@/src/lib/postgres"
 import Google from "next-auth/providers/google"
+import Facebook from "next-auth/providers/facebook"
 import nodemailer from "next-auth/providers/nodemailer"
 import { clearStaleTokens } from "./ClearStaleTokensServerAction"
-import { setName } from "@/src/lib/auth/setNameServerAction"
+import { setName } from "@/src/lib/auth/SetNameServerAction"
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
 	trustHost: true,
@@ -24,6 +25,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 			clientId: process.env.GOOGLE_CLIENT_ID,
 			clientSecret: process.env.GOOGLE_CLIENT_SECRET,
 			allowDangerousEmailAccountLinking: true,
+		}),
+		Facebook({
+			clientId: process.env.AUTH_FACEBOOK_ID,
+			clientSecret: process.env.AUTH_FACEBOOK_SECRET,
 		}),
 		nodemailer({
 			server: {

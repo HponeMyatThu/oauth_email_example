@@ -2,11 +2,9 @@
 
 import { signIn } from "@/src/lib/auth/authConfig"
 
-export const handleGoogleSignIn = async () => {
+export const handleAppleSignIn = async () => {
 	try {
-		await signIn("google", {
-			redirectTo: "/dashboard",
-		})
+		console.log("apple sign in")
 	} catch (error) {
 		throw error
 	}

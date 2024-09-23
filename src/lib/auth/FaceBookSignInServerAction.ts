@@ -2,9 +2,9 @@
 
 import { signIn } from "@/src/lib/auth/authConfig"
 
-export const handleGoogleSignIn = async () => {
+export const handleFacebookSignIn = async () => {
 	try {
-		await signIn("google", {
+		await signIn("facebook", {
 			redirectTo: "/dashboard",
 		})
 	} catch (error) {
