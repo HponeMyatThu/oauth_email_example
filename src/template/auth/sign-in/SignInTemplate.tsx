@@ -4,6 +4,9 @@ import { handleEmailSignIn } from "@/src/lib/auth/EmailSignInServerAction"
 import { handleGoogleSignIn } from "@/src/lib/auth/GoogleSignInServerAction"
 import { useState, useTransition } from "react"
 import { FcGoogle } from "react-icons/fc"
+import { FaFacebook, FaApple } from "react-icons/fa"
+import { handleFacebookSignIn } from "@/src/lib/auth/FaceBookSignInServerAction"
+import { handleAppleSignIn } from "@/src/lib/auth/AppleSignInServerAction"
 
 const SignInTemplate: React.FC = () => {
 	const [isPending, startTransition] = useTransition()
@@ -50,11 +53,33 @@ const SignInTemplate: React.FC = () => {
 
 					<div className="social-logins">
 						<button
-							className="google"
+							className="social"
 							onClick={() => handleGoogleSignIn()}
 						>
 							<FcGoogle className="google-icon" />
 							Sign in with Google
+						</button>
+					</div>
+
+					<br />
+					<div className="social-logins">
+						<button
+							className="social"
+							onClick={() => handleFacebookSignIn()}
+						>
+							<FaFacebook className="facebook-icon" />
+							Sign in with Facebook
+						</button>
+					</div>
+
+					<br />
+					<div className="social-logins">
+						<button
+							className="social"
+							onClick={() => handleAppleSignIn()}
+						>
+							<FaApple className="apple-icon" />
+							Sign in with Apple
 						</button>
 					</div>
 				</div>
